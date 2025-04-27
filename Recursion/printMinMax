@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Main{
+  
+  public static void main(String[] args){
+    
+    int[] arr = {1, 4, 45, 6, 10, -8};
+    
+    printMinMax(arr, Integer.MAX_VALUE, Integer.MIN_VALUE, 0);
+    
+  }
+  
+  public static void printMinMax(int[] arr, int min, int max, int index){
+    
+    if(index == arr.length){
+      System.out.println("min = "+min+", max = "+max);
+      return;
+    }
+    
+    min = Math.min(min, arr[index]);
+    max = Math.max(max, arr[index]);
+    
+    printMinMax(arr, min, max, index+1);
+    
+  }
+  
+}
