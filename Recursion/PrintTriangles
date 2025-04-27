@@ -1,0 +1,41 @@
+import java.util.*;
+public class Student{
+
+  public static void main(String[] args) {
+    
+    int[] arr = {1,2,3,4,5};
+    List<List<Integer>> list = new ArrayList<>();
+    List<Integer> innerList = new ArrayList<>();
+    
+      for(int i=0; i < arr.length; i++){
+        innerList.add(arr[i]);
+      }
+      
+      list.add(innerList);
+  
+      System.out.println(sumTriangles(arr, list, innerList));
+
+  }
+  
+  
+  public static List<List<Integer>> sumTriangles(int[] arr, List<List<Integer>> list, List<Integer> innerList){
+    
+      if(innerList.size() == 1){
+        return list;  
+      }
+    
+      List<Integer> newInnerList = new ArrayList<>();
+      
+      for(int index=0; index < innerList.size()-1 && index < arr.length; index++){
+        newInnerList.add(innerList.get(index++)+innerList.get(index));
+      }
+      
+      System.out.println((list).toString());
+      //System.out.println((newInnerList).toString());
+      
+      list.add(newInnerList);
+      
+      
+      return sumTriangles(arr, list, newInnerList);
+  }
+}
